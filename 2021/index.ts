@@ -1,14 +1,13 @@
-import { decreasedMesure, makeWindowsByThree, readListAndNumberify } from './day-1';
 import { readFileSync } from 'fs';
+import { dayOne } from './day-1';
+import { dayTwo } from './day-2';
 
 export const readFile = (): string => readFileSync('input.txt', { encoding: 'utf8' }).trim();
 
 const main = (): void => {
-    const inputData= readFile()
-    const cleanData = readListAndNumberify(inputData)
-    decreasedMesure('Part 1', cleanData)
-    const windows = makeWindowsByThree(cleanData)
-    decreasedMesure('Part 2', windows)
+    const inputData: string = readFile();
+    dayOne(inputData);
+    dayTwo(inputData);
 };
 
 main();
