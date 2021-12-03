@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const readListAndShapefy = (input: string): string[][] => input.split('\n').map((e) => e.split(' '));
 
 const readMouvement = (input: string[][]): number => {
@@ -44,8 +45,8 @@ export const readMouvementWithAim = (input: string[][]): number => {
                 // eslint-disable-next-line no-console
                 console.log('error Default statement');
                 break;
-            }
-        });
+        }
+    });
 
     return horizontalPosition * depth;
 };
@@ -53,8 +54,7 @@ export const readMouvementWithAim = (input: string[][]): number => {
 export const dayTwo = (inputData: string): void => {
     const dataList = readListAndShapefy(inputData);
     const result = readMouvement(dataList);
-    // eslint-disable-next-line no-console
     console.log(`Part One: ${result}`);
-    const resultTwo= readMouvementWithAim(dataList);
-    console.log(`Part two: ${resultTwo}`)
+    const resultTwo = readMouvementWithAim(dataList);
+    console.log(`Part two: ${resultTwo}`);
 };
