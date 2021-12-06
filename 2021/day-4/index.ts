@@ -11,25 +11,40 @@ export const playGame = (gameTable, lotoNumber, lotoTableFlat) => {
     for(let i = 0; i < gameTable.length; i++){
         scoreByTable[i]= 0;
     }
-    while( haveAWinner === false) {
+    while( haveAWinner === false &&  gameTable.length>0) {
         let number = lotoNumber[counter];
         for(let j = 0; j < lotoTableFlat.length; j++){
             if(lotoTableFlat[j].includes(number))
                 {
                 scoreByTable[j]++;
-
                 }
             if (scoreByTable[j] >= 5){
                 if(checkRow(gameTable[j],counter,lotoNumber)){
-                    return {'table': lotoTableFlat[j], 'counter': counter, 'pass': 'row', 'test':number }
-                }
-                if(checkColumns(gameTable[j],counter,lotoNumber)){
-                    return {'table': lotoTableFlat[j], 'counter': counter, 'pass': 'column'  }
+                    tableOfScore.push(
+                            calculateScore({
+                                'table': lotoTableFlat[j],
+                                'counter': counter,
+                            },lotoNumber))
+                    lotoTableFlat.splice(j,1);
+                    gameTable.splice(j,1);
+                    // return {'table': lotoTableFlat[j], 'counter': counter, 'pass': 'row' }
+                }else if(checkColumns(gameTable[j],counter,lotoNumber)){
+                    tableOfScore.push(
+                        calculateScore({
+                            'table': lotoTableFlat[j],
+                            'counter': counter,
+                        },lotoNumber));
+                        lotoTableFlat.splice(j,1);
+                        gameTable.splice(j,1);
+                      // return {'table': lotoTableFlat[j], 'counter': counter, 'pass': 'column'  }
                 }
             }
         }
+        if(gameTable.length <= 0 ){
+            return tableOfScore
+        }
         counter++;
-        if(counter>=22){
+        if(counter>=lotoNumber.length){
             console.log('end')
             haveAWinner=true;
         }
@@ -44,8 +59,8 @@ export const playGame = (gameTable, lotoNumber, lotoTableFlat) => {
             if(row.includes(lotoNumber[i])){
                 rowScore++;
                 if (rowScore === 5){
-                    console.log(`row : ${row}`)
-                    console.log(table)
+                    // console.log(`row : ${row}`)
+                    // console.log(table)
                     scoreThisRow= true;
                 }
             };
@@ -76,11 +91,11 @@ export const playGame = (gameTable, lotoNumber, lotoTableFlat) => {
     for(let c = 0; c < 5; c++){
         for(let r = 0; r<5; r++){
             for(let n = 0; n <= counter; n++){
+                // console.log(table)
                 if(table[r][c] === lotoNumber[n]){
                     columnScore++;
                     if(columnScore === 5){
-                        calculateScore({'table':table, 'counter': counter}, lotoNumber)
-                        // return true;
+                        return true;
                     }
                 }  
             }
@@ -97,7 +112,7 @@ export const playGame = (gameTable, lotoNumber, lotoTableFlat) => {
             totalScoreOFTable -= lotoNumber[i]
         }
     }
-    console.log(totalScoreOFTable)
+    console.log(`total score ${totalScoreOFTable * lotoNumber[table.counter]}`)
     return totalScoreOFTable * lotoNumber[table.counter]
 
     // for(let i  = 0; i <= table.counter; i++){
@@ -120,7 +135,7 @@ export const playGame = (gameTable, lotoNumber, lotoTableFlat) => {
     const gameTable = lotoTable;
     const tableWin = playGame(gameTable, lotoNumber, lotoTableFlat);
     console.log(tableWin)
-    const score = calculateScore(tableWin,lotoNumber);
-    console.log(score);
+    // const score = calculateScore(tableWin,lotoNumber);
+    // console.log(score);
 };
 
