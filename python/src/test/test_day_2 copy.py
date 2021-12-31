@@ -1,8 +1,16 @@
 from os import path
-from ..day_main.utils.utils  import read_file
-from ..day_main.day_2 import read_instruction, apply_instruction, main, apply_instructions
 
-path = '/in_memory/test_day_2.txt'
+from ..day_main.day_2 import (
+    apply_instruction,
+    apply_instruction_with_aim,
+    apply_instructions,
+    main,
+    read_instruction,
+)
+from ..day_main.utils.utils import read_file
+
+path = "/in_memory/test_day_2.txt"
+
 
 def test_read_instruction():
     instruction_1 = "forward 5"
@@ -44,3 +52,30 @@ def test_with_test_instruction_have_result():
 def test_main_result_with_test():
     result = main(path)
     assert result == 150
+
+
+def test_forward_instruction_with_aim():
+    instruction = ["forward", "5"]
+    position = {"horizontal": 3, "depth": 0, "aim": 5}
+    new_position = apply_instruction_with_aim(instruction, position)
+    assert new_position == {"horizontal": 8, "depth": 25, "aim": 5}
+
+
+def test_down_instruction_with_aim():
+    instruction = ["down", "5"]
+    position = {"horizontal": 0, "depth": 4, "aim": 5}
+    new_position = apply_instruction_with_aim(instruction, position)
+    assert new_position == {"horizontal": 0, "depth": 4, "aim": 10}
+
+
+def test_up_instruction_with_aim():
+    instruction = ["up", "5"]
+    position = {"horizontal": 0, "depth": 10, "aim": 10}
+    new_position = apply_instruction_with_aim(instruction, position)
+    assert new_position == {"horizontal": 0, "depth": 10, "aim": 5}
+
+
+def test_main_result_with_test():
+    result = main(path)
+    assert result["result"] == 150
+    assert result["result_with_aim"] == 900

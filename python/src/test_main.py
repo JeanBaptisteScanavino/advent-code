@@ -1,6 +1,7 @@
-from .day_main.utils.utils import read_file, make_int
+from .day_main.utils.utils import make_int, read_file
 
-path = '/main.txt'
+path = "/main.txt"
+
 
 def test_main_file_should_respond_this():
     assert read_file(path) == ["coucou", "le test", "en python"]

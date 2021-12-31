@@ -1,6 +1,13 @@
-from .utils.utils import read_file, make_int
-from . import count_increase_with_windows, make_windows, is_increase, count_increase
-path = '/in_memory/test_day_1.txt'
+from ..day_main.day_1 import (
+    count_increase,
+    count_increase_with_windows,
+    is_increase,
+    make_windows,
+)
+from ..day_main.utils.utils import make_int, read_file
+
+path = "/in_memory/test_day_1.txt"
+
 
 def test_is_increase():
     first = 2
