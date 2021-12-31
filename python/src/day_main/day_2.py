@@ -1,8 +1,10 @@
 # pylint: disable=unused-variable
-from ..utils import read_file, make_int
+from .utils.utils import make_int, read_file
+
 
 def read_instruction(instruction):
-    return instruction.split(' ')
+    return instruction.split(" ")
+
 
 def apply_instruction(instruction, position):
     if instruction[0] == "forward":
@@ -13,20 +15,23 @@ def apply_instruction(instruction, position):
         position["depth"] -= make_int(instruction[1])
     return position
 
+
 def apply_instructions(instructions):
-    position = {
-            "horizontal" : 0,
-            "depth" : 0
-        }
+    position = {"horizontal": 0, "depth": 0}
     for instruction in instructions:
         position = apply_instruction(instruction, position)
     return position
 
+
 def main(input_file):
     input = read_file(input_file)
     instructions = [read_instruction(instruction) for instruction in input]
-    final_position =  apply_instructions(instructions)
+    final_position = apply_instructions(instructions)
     return final_position["horizontal"] * final_position["depth"]
 
-result = main("./day_2/input.txt")
-print(result)
+
+
+if __name__ == "__main__":
+    result = main("./input/input_day_2.txt")
+    print(result)
+
