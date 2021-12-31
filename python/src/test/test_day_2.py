@@ -1,12 +1,7 @@
 from os import path
 
-from ..day_main.day_2 import (
-    apply_instruction,
-    apply_instruction_with_aim,
-    apply_instructions,
-    main,
-    read_instruction,
-)
+from ..day_main.day_2 import (apply_instruction, apply_instruction_with_aim,
+                              apply_instructions, main, read_instruction)
 from ..day_main.utils.utils import read_file
 
 path = "/in_memory/test_day_2.txt"

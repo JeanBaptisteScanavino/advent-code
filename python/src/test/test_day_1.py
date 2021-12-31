@@ -1,9 +1,5 @@
-from ..day_main.day_1 import (
-    count_increase,
-    count_increase_with_windows,
-    is_increase,
-    make_windows,
-)
+from ..day_main.day_1 import (count_increase, count_increase_with_windows,
+                              is_increase, make_windows)
 from ..day_main.utils.utils import make_int, read_file
 
 path = "/in_memory/test_day_1.txt"
