@@ -1,8 +1,8 @@
-from ..utils.utils import Utils
+from ..utils.utils import InputReader,CalcInArray
 
 
 def test_read_input_file():
-    test = Utils.read_file("/test_day_1.txt")
+    test = InputReader.read_file("/test_day_1.txt")
     result = [
         "1000",
         "2000",
@@ -23,18 +23,18 @@ def test_read_input_file():
 
 
 def test_make_group_in_array():
-    test = Utils.make_group_in_array(Utils.read_file("test_day_1.txt"))
+    test = InputReader.make_group_in_array(InputReader.read_file("test_day_1.txt"))
     result = [6000, 4000, 11000, 24000, 10000]
     assert test == result
 
 
-def test_is_higher_elf_kcal():
-    test = Utils.is_higher_elf_kcal([6000, 4000, 11000, 24000, 10000])
+def test_get_highter_of_array():
+    test = CalcInArray.get_highter_of_array([6000, 4000, 11000, 24000, 10000])
     result = 24000
     assert test == result
 
 
-def test_total_of_three_higher_elf_kcal():
-    test = Utils.total_of_three_higher_elf_kcal([6000, 4000, 11000, 24000, 10000])
+def test_get_tree_highter_of_array():
+    test = CalcInArray.get_tree_highter_of_array([6000, 4000, 11000, 24000, 10000])
     result = 45000
     assert test == result

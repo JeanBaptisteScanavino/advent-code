@@ -3,7 +3,7 @@ import os
 my_path = os.path.abspath(os.path.dirname(__file__))
 
 
-class Utils:
+class InputReader:
     def myutils():
         return "utils"
 
@@ -29,9 +29,10 @@ class Utils:
                 elf_kcal += int(x)
         return result
 
-    def is_higher_elf_kcal(array):
+class CalcInArray():
+    def get_highter_of_array(array):
         return max(array)
 
-    def total_of_three_higher_elf_kcal(array):
+    def get_tree_highter_of_array(array):
         array.sort(reverse=True)
         return array[0] + array[1] + array[2]
