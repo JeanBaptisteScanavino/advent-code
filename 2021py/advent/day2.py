@@ -1,4 +1,4 @@
-from utils.utils import CalcInArray, InputReader, CommandSubmarine
+from utils.utils import CalcInArray, CommandSubmarine, InputReader
 
 
 def read_input_file():
@@ -9,9 +9,11 @@ def exec_1(file):
     postions = CommandSubmarine.apply_order(file)
     return CommandSubmarine.get_submarine_position(postions)
 
+
 def exec_2(file):
     postions = CommandSubmarine.apply_real_order(file)
     return CommandSubmarine.get_submarine_position(postions)
+
 
 file = read_input_file()
 result_1 = exec_1(file)
