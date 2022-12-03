@@ -6,13 +6,12 @@ def read_input_file():
 
 
 def exec_1(file):
+    return PlayWithString.calc_priority(file)
     
 
 
-
-
 def exec_2(file):
-    pass
+    return PlayWithString.calc_real_priority(file)
 
 file = read_input_file()
 result_1 = exec_1(file)
