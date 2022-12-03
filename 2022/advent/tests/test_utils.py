@@ -1,4 +1,6 @@
-from ..utils.utils import *
+from ..utils.InputReader import InputReader
+from ..utils.CalcInArray import CalcInArray
+from ..utils.ElfGame import ElfGame
 
 
 def test_read_input_file():

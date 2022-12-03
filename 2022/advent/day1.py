@@ -1,4 +1,5 @@
-from utils.utils import CalcInArray, InputReader
+from utils.InputReader import InputReader
+from utils.CalcInArray import CalcInArray
 
 
 def read_input_file():

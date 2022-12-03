@@ -1,4 +1,5 @@
-from utils.utils import *
+from utils.InputReader import InputReader
+from utils.ElfGame import ElfGame
 
 
 def read_input_file():
