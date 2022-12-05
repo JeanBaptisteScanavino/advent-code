@@ -16,3 +16,4 @@ bit_example_diag = [
 ]
 
 bingo_test = InputReader.read_file("bingo_test.txt")
+

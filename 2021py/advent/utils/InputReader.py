@@ -30,4 +30,7 @@ class InputReader:
         return result
 
     def get_first_line(file):
+        return InputReader.split_string_with_char(file[0],',') 
         return file[0].split(",")
+
+

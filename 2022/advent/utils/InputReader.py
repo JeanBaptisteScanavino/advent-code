@@ -34,3 +34,6 @@ class InputReader:
         for i in file:
             result.append(i.split(" "))
         return result
+
+    def split_string_with_char(s,c):
+        return s.split(c)
