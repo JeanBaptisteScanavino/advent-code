@@ -56,3 +56,4 @@ def test_calc_real_priority():
     test = PlayWithString.calc_real_priority(day_3_readed)
     result = 70
     assert test == result
+

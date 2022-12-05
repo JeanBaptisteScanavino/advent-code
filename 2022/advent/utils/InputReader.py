@@ -1,5 +1,5 @@
 import os
-
+import numpy as np
 my_path = os.path.abspath(os.path.dirname(__file__))
 
 
@@ -37,3 +37,14 @@ class InputReader:
 
     def split_string_with_char(s,c):
         return s.split(c)
+
+    def split_inputs_with_n(file):
+        print(file.index(''))
+        arr = np.array(file)
+        separator = np.where(arr == '')[0]
+        inputs=arr[0:separator[0]].tolist()
+        commands=arr[separator[0]+1:len(arr)].tolist()
+        print(commands)
+        return [inputs,commands]
+
+
